@@ -1,0 +1,33 @@
+# Visual Studio
+**/.vs/
+**/bin/
+**/obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+**/[Dd]ebug/
+**/[Rr]elease/
+**/x64/
+**/x86/
+
+# Frontend Node
+**/node_modules/
+**/dist/
+**/build/
+**/.env
+**/.env.local
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

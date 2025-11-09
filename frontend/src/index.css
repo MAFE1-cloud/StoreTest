@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  --color-mafe: #c084fc; /* 💜 tu color personalizado */
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  background-color: var(--color-gray-50);
+  color: var(--color-gray-800);
+}

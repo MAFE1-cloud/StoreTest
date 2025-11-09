@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16
+    container_name: storebym_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: saleshubdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  api:
+    container_name: storebym_api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5073:5073"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Production"
+      ConnectionStrings__DefaultConnection: "Host=db;Port=5432;Database=saleshubdb;Username=postgres;Password=12345678"
+    depends_on:
+      - db
+    command: >
+     sh -c "dotnet SalesHub.WebApi.dll"
+
+volumes:
+  postgres_data:
